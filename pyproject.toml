@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "gpt-free-telegram-bot"
+version = "0.1.0"
+description = ""
+authors = ["Octopulus96 <octopulus96@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.0"
+python-telegram-bot = "^20.8"
+g4f = "^0.2.1.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
