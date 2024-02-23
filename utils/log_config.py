@@ -1,4 +1,3 @@
-import logging
 import logging.config
 
 log_config = {
@@ -11,18 +10,18 @@ log_config = {
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
-            'level': 'INFO',
+            'level': 'DEBUG',
             'formatter': 'standard',
         },
         'file': {
             'class': 'logging.FileHandler',
             'filename': 'app.log',
-            'level': 'WARNING',
+            'level': 'DEBUG',
             'formatter': 'standard',
         },
     },
     'root': {
-        'level': 'INFO',
+        'level': 'DEBUG',
         'handlers': ['console', 'file']
     }
 }
