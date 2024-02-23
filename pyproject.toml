@@ -9,6 +9,7 @@ readme = "README.md"
 python = "3.12.0"
 python-telegram-bot = "^20.8"
 g4f = "^0.2.1.8"
+pytest = "^8.0.1"
 
 
 [build-system]
