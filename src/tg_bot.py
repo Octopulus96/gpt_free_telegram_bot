@@ -1,5 +1,5 @@
 import logging, os, telegram
-from telegram import ForceReply, Update
+from telegram import ForceReply, Update, constants
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from utils.gpt import chat_gpt
 from utils.log_config import log_config
@@ -26,6 +26,10 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def gpt_request_response(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     logger.info("GPT request received")
     if await access_check(update, context, user_list_int):
+        # Добавляем эффект "печатает" (typing) перед отправкой запроса к GPT
+        await update.effective_message.reply_chat_action(
+            action=constants.ChatAction.TYPING
+        )
         response = await chat_gpt(update.message.text)
         logger.info(f"Sending GPT response to user ID: {update.effective_user.id}")
         await update.message.reply_text(response)
